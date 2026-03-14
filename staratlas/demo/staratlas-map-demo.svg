@@ -1,26 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1220" />
-      <stop offset="100%" stop-color="#16283d" />
+    <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071a2b" />
+      <stop offset="100%" stop-color="#0b2f4a" />
     </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2ea7ff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#2ea7ff" stop-opacity="0" />
+    </radialGradient>
   </defs>
-  <rect width="1200" height="600" fill="url(#bg)" />
-  <g opacity="0.8">
-    <ellipse cx="250" cy="250" rx="180" ry="110" fill="#1f3a5f" />
-    <ellipse cx="520" cy="260" rx="140" ry="90" fill="#1f3a5f" />
-    <ellipse cx="820" cy="220" rx="170" ry="100" fill="#1f3a5f" />
-    <ellipse cx="950" cy="330" rx="140" ry="80" fill="#1f3a5f" />
-    <ellipse cx="730" cy="380" rx="200" ry="110" fill="#1f3a5f" />
+  <rect width="1200" height="600" fill="url(#ocean)" />
+  <rect width="1200" height="600" fill="url(#glow)" />
+
+  <g opacity="0.18" stroke="#7fb3d9" stroke-width="1">
+    <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200" />
+    <path d="M150 0V600M300 0V600M450 0V600M600 0V600M750 0V600M900 0V600M1050 0V600" />
   </g>
-  <g opacity="0.9">
-    <circle cx="220" cy="230" r="28" fill="#4cc9f0" />
-    <circle cx="300" cy="300" r="18" fill="#4cc9f0" />
-    <circle cx="500" cy="240" r="22" fill="#4cc9f0" />
-    <circle cx="780" cy="210" r="26" fill="#4cc9f0" />
-    <circle cx="900" cy="320" r="20" fill="#4cc9f0" />
-    <circle cx="720" cy="390" r="24" fill="#4cc9f0" />
+
+  <g fill="#1f4e5f" stroke="#3a7aa6" stroke-width="1.2" opacity="0.95">
+    <path d="M130 210 L210 180 L300 195 L340 235 L320 270 L250 275 L200 250 L150 255 Z" />
+    <path d="M320 300 L360 285 L400 295 L430 330 L405 360 L360 355 L330 325 Z" />
+    <path d="M430 180 L520 150 L620 165 L690 210 L660 250 L570 260 L480 230 Z" />
+    <path d="M690 230 L770 210 L860 230 L930 280 L910 330 L820 340 L740 310 Z" />
+    <path d="M900 160 L980 150 L1060 180 L1100 220 L1080 260 L1000 270 L940 230 Z" />
+    <path d="M760 380 L820 360 L900 380 L950 420 L920 455 L840 460 L780 420 Z" />
+    <path d="M500 380 L560 360 L620 370 L650 410 L610 440 L540 440 L500 410 Z" />
+    <path d="M260 390 L320 370 L380 385 L400 420 L360 445 L290 440 L260 410 Z" />
   </g>
+
+  <g>
+    <circle cx="240" cy="230" r="22" fill="#4cc9f0" />
+    <circle cx="315" cy="315" r="14" fill="#4cc9f0" />
+    <circle cx="545" cy="215" r="20" fill="#4cc9f0" />
+    <circle cx="810" cy="260" r="24" fill="#4cc9f0" />
+    <circle cx="980" cy="215" r="18" fill="#4cc9f0" />
+    <circle cx="860" cy="410" r="20" fill="#4cc9f0" />
+    <circle cx="580" cy="410" r="16" fill="#4cc9f0" />
+    <circle cx="330" cy="420" r="14" fill="#4cc9f0" />
+  </g>
+
   <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" fill="#e6f1ff">StarAtlas Demo Map</text>
-  <text x="40" y="90" font-family="Arial, sans-serif" font-size="16" fill="#9bb3d1">Placeholder visualization for README previews.</text>
+  <text x="40" y="90" font-family="Arial, sans-serif" font-size="16" fill="#9bb3d1">Stylized preview map for README embeds.</text>
 </svg>
