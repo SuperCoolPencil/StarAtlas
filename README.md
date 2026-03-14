@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: yourusername/staratlas@v1
+      - uses: supercoolpencil/staratlas@v1
         with:
           output-dir: staratlas
           html: "true"
