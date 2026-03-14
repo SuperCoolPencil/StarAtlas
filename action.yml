@@ -1,0 +1,44 @@
+name: StarAtlas
+description: Generate stargazer community visuals (map + company chart) using the GitHub GraphQL API.
+author: StarAtlas
+branding:
+  icon: map
+  color: blue
+
+inputs:
+  owner:
+    description: Repository owner (defaults to current repo).
+    required: false
+  repo:
+    description: Repository name (defaults to current repo).
+    required: false
+  output-dir:
+    description: Output directory for artifacts.
+    required: false
+    default: staratlas
+  html:
+    description: Also emit interactive HTML map.
+    required: false
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+    - name: Install dependencies
+      shell: bash
+      run: pip install -r requirements.txt
+    - name: Run StarAtlas
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        args=()
+        if [ -n "${{ inputs.owner }}" ]; then args+=("--owner" "${{ inputs.owner }}"); fi
+        if [ -n "${{ inputs.repo }}" ]; then args+=("--repo" "${{ inputs.repo }}"); fi
+        args+=("--output-dir" "${{ inputs.output-dir }}")
+        if [ "${{ inputs.html }}" = "true" ]; then args+=("--html"); fi
+        python run_staratlas.py "${args[@]}"
