@@ -33,6 +33,6 @@ jobs:
 ## Embed
 
 ```md
-![StarAtlas Map](./staratlas/staratlas-map.png)
-![StarAtlas Top Companies](./staratlas/staratlas-companies.svg)
+![StarAtlas Map](./staratlas/demo/staratlas-map-demo.svg)
+![StarAtlas Top Companies](./staratlas/demo/staratlas-companies-demo.svg)
 ```
