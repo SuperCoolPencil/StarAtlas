@@ -32,7 +32,5 @@ jobs:
 
 ## Embed
 
-```md
 ![StarAtlas Map](./staratlas/demo/staratlas-map-demo.svg)
 ![StarAtlas Top Companies](./staratlas/demo/staratlas-companies-demo.svg)
-```
