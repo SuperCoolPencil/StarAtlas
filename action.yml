@@ -28,9 +28,11 @@ runs:
       uses: actions/setup-python@v5
       with:
         python-version: "3.11"
+    - name: Setup uv
+      uses: astral-sh/setup-uv@v3
     - name: Install dependencies
       shell: bash
-      run: pip install -r requirements.txt
+      run: uv pip install -r "${{ github.action_path }}/requirements.txt"
     - name: Run StarAtlas
       shell: bash
       env:
@@ -41,4 +43,4 @@ runs:
         if [ -n "${{ inputs.repo }}" ]; then args+=("--repo" "${{ inputs.repo }}"); fi
         args+=("--output-dir" "${{ inputs.output-dir }}")
         if [ "${{ inputs.html }}" = "true" ]; then args+=("--html"); fi
-        python run_staratlas.py "${args[@]}"
+        python "${{ github.action_path }}/run_staratlas.py" "${args[@]}"
