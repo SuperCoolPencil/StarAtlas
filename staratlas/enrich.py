@@ -9,93 +9,6 @@ COMPANY_SUFFIX_RE = re.compile(r"\b(inc|llc|ltd|co|corp|corporation|company)\b",
 NON_WORD_RE = re.compile(r"[^\w\s]")
 
 
-COMMON_LOCATION_MAP = {
-    "nyc": "US",
-    "new york": "US",
-    "san francisco": "US",
-    "bay area": "US",
-    "los angeles": "US",
-    "seattle": "US",
-    "austin": "US",
-    "chicago": "US",
-    "boston": "US",
-    "london": "GB",
-    "england": "GB",
-    "scotland": "GB",
-    "wales": "GB",
-    "uk": "GB",
-    "united kingdom": "GB",
-    "ireland": "IE",
-    "dublin": "IE",
-    "paris": "FR",
-    "france": "FR",
-    "berlin": "DE",
-    "germany": "DE",
-    "amsterdam": "NL",
-    "netherlands": "NL",
-    "madrid": "ES",
-    "spain": "ES",
-    "rome": "IT",
-    "italy": "IT",
-    "stockholm": "SE",
-    "sweden": "SE",
-    "oslo": "NO",
-    "norway": "NO",
-    "copenhagen": "DK",
-    "denmark": "DK",
-    "helsinki": "FI",
-    "finland": "FI",
-    "warsaw": "PL",
-    "poland": "PL",
-    "prague": "CZ",
-    "czech": "CZ",
-    "vienna": "AT",
-    "austria": "AT",
-    "zurich": "CH",
-    "switzerland": "CH",
-    "brussels": "BE",
-    "belgium": "BE",
-    "lisbon": "PT",
-    "portugal": "PT",
-    "tokyo": "JP",
-    "japan": "JP",
-    "seoul": "KR",
-    "south korea": "KR",
-    "korea": "KR",
-    "beijing": "CN",
-    "shanghai": "CN",
-    "china": "CN",
-    "hong kong": "HK",
-    "taiwan": "TW",
-    "singapore": "SG",
-    "sydney": "AU",
-    "melbourne": "AU",
-    "australia": "AU",
-    "toronto": "CA",
-    "vancouver": "CA",
-    "canada": "CA",
-    "mexico": "MX",
-    "brazil": "BR",
-    "argentina": "AR",
-    "chile": "CL",
-    "india": "IN",
-    "bangalore": "IN",
-    "bengaluru": "IN",
-    "delhi": "IN",
-    "mumbai": "IN",
-    "israel": "IL",
-    "tel aviv": "IL",
-    "uae": "AE",
-    "dubai": "AE",
-    "saudi": "SA",
-    "egypt": "EG",
-    "nigeria": "NG",
-    "south africa": "ZA",
-    "russia": "RU",
-    "moscow": "RU",
-}
-
-
 def clean_company(company):
     if not company:
         return ""
@@ -114,9 +27,6 @@ def _lookup_country(raw):
     value = raw.strip().lower()
     if not value:
         return None
-    if value in COMMON_LOCATION_MAP:
-        return COMMON_LOCATION_MAP[value]
-
     try:
         country = pycountry.countries.lookup(raw)
         if country:
@@ -132,15 +42,11 @@ def normalize_location_to_country(location):
     cleaned = location.strip().lower()
     if not cleaned:
         return None
-    if cleaned in COMMON_LOCATION_MAP:
-        return COMMON_LOCATION_MAP[cleaned]
     parts = [part.strip() for part in re.split(r"[,/|]", cleaned) if part.strip()]
     for part in reversed(parts):
         match = _lookup_country(part)
         if match:
             return match
-        if part in COMMON_LOCATION_MAP:
-            return COMMON_LOCATION_MAP[part]
     return None
 
 

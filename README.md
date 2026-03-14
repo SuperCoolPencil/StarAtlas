@@ -2,6 +2,8 @@
 
 StarAtlas generates stargazer community visuals (world map) directly inside your GitHub Actions runner.
 
+Location note: we only use `pycountry` to infer countries from user-provided profile locations. This is best-effort and will miss many city-only or informal locations. We intentionally avoid maintaining a custom location map or using paid geocoding APIs.
+
 ## Usage
 
 ```yaml
