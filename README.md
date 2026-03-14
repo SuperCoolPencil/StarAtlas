@@ -1,6 +1,6 @@
-# StarAtlas
+# StargazerAtlas
 
-StarAtlas generates stargazer community visuals (world map) directly inside your GitHub Actions runner.
+StargazerAtlas generates stargazer community visuals (world map) directly inside your GitHub Actions runner.
 
 Location note: we only use `pycountry` to infer countries from user-provided profile locations. This is best-effort and will miss many city-only or informal locations. We intentionally avoid maintaining a custom location map or using paid geocoding APIs.
 
@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v3
-      - uses: supercoolpencil/staratlas@v1
+      - uses: supercoolpencil/stargazeratlas@v1
         with:
           output-dir: staratlas
           html: "true"
@@ -36,4 +36,4 @@ jobs:
 
 ## Embed
 
-![StarAtlas Map](./staratlas/demo/staratlas-map-demo.svg)
+![StargazerAtlas Map](./staratlas/demo/staratlas-map-demo.svg)
