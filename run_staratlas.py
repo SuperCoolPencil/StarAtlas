@@ -4,7 +4,7 @@ import sys
 
 from staratlas.enrich import enrich_and_aggregate
 from staratlas.extract import fetch_stargazers, load_existing, merge_dedup, save
-from staratlas.visualize import render_company_chart, render_world_map
+from staratlas.visualize import render_world_map
 
 
 def main():
@@ -33,7 +33,6 @@ def main():
     output_dir = args.output_dir
     stargazers_path = os.path.join(output_dir, "stargazers.json")
     aggregates_path = os.path.join(output_dir, "aggregates.json")
-    companies_svg = os.path.join(output_dir, "staratlas-companies.svg")
     map_png = os.path.join(output_dir, "staratlas-map.png")
     map_html = os.path.join(output_dir, "staratlas-map.html") if args.html else None
 
@@ -42,8 +41,7 @@ def main():
     merged = merge_dedup(existing, new_entries)
     save(stargazers_path, f"{owner}/{repo}", merged)
 
-    country_counts, company_counts = enrich_and_aggregate(stargazers_path, aggregates_path)
-    render_company_chart(company_counts, companies_svg)
+    country_counts, _company_counts = enrich_and_aggregate(stargazers_path, aggregates_path)
     render_world_map(country_counts, map_png, map_html)
 
     print(f"Updated {stargazers_path}, {aggregates_path}, and visuals in {output_dir}.")

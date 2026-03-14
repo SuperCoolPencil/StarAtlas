@@ -1,5 +1,5 @@
 name: StarAtlas
-description: Generate stargazer community visuals (map + company chart) using the GitHub GraphQL API.
+description: Generate stargazer community visuals (world map) using the GitHub GraphQL API.
 author: StarAtlas
 branding:
   icon: map

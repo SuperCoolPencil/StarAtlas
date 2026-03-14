@@ -1,6 +1,6 @@
 # StarAtlas
 
-StarAtlas generates stargazer community visuals (world map + top companies) directly inside your GitHub Actions runner.
+StarAtlas generates stargazer community visuals (world map) directly inside your GitHub Actions runner.
 
 ## Usage
 
@@ -34,4 +34,3 @@ jobs:
 ## Embed
 
 ![StarAtlas Map](./staratlas/demo/staratlas-map-demo.svg)
-![StarAtlas Top Companies](./staratlas/demo/staratlas-companies-demo.svg)

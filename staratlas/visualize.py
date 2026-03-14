@@ -1,6 +1,5 @@
 import os
 
-import matplotlib.pyplot as plt
 import plotly.express as px
 import pycountry
 
@@ -13,25 +12,6 @@ def _alpha2_to_alpha3(alpha2):
     except LookupError:
         return None
     return None
-
-
-def render_company_chart(company_counts, output_svg, top_n=10):
-    if not company_counts:
-        return False
-    items = sorted(company_counts.items(), key=lambda item: item[1], reverse=True)[:top_n]
-    labels = [item[0].title() for item in items]
-    values = [item[1] for item in items]
-
-    os.makedirs(os.path.dirname(output_svg), exist_ok=True)
-    fig, ax = plt.subplots(figsize=(8, 5))
-    ax.barh(labels[::-1], values[::-1], color="#2a9d8f")
-    ax.set_xlabel("Stargazers")
-    ax.set_title("Top Companies")
-    ax.grid(axis="x", linestyle="--", alpha=0.4)
-    fig.tight_layout()
-    fig.savefig(output_svg, format="svg")
-    plt.close(fig)
-    return True
 
 
 def render_world_map(country_counts, output_png, output_html=None):
