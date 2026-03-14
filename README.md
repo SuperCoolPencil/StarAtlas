@@ -9,7 +9,7 @@ name: StarAtlas
 
 on:
   schedule:
-    - cron: "0 2 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch: {}
 
 permissions:
