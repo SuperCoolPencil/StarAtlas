@@ -20,6 +20,10 @@ inputs:
     description: Also emit interactive HTML map.
     required: false
     default: "true"
+  theme:
+    description: Visual theme for the map (light or dark).
+    required: false
+    default: light
 
 runs:
   using: composite
@@ -42,5 +46,6 @@ runs:
         if [ -n "${{ inputs.owner }}" ]; then args+=("--owner" "${{ inputs.owner }}"); fi
         if [ -n "${{ inputs.repo }}" ]; then args+=("--repo" "${{ inputs.repo }}"); fi
         args+=("--output-dir" "${{ inputs.output-dir }}")
+        args+=("--theme" "${{ inputs.theme }}")
         if [ "${{ inputs.html }}" = "true" ]; then args+=("--html"); fi
         python "${{ github.action_path }}/run_staratlas.py" "${args[@]}"

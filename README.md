@@ -25,6 +25,7 @@ jobs:
         with:
           output-dir: staratlas
           html: "true"
+          theme: light
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(staratlas): update stargazer visuals"

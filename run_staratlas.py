@@ -13,6 +13,7 @@ def main():
     parser.add_argument("--repo", default=None)
     parser.add_argument("--output-dir", default="staratlas")
     parser.add_argument("--html", action="store_true", help="Also emit an interactive HTML map.")
+    parser.add_argument("--theme", default="light", choices=["light", "dark"], help="Theme for the map.")
     args = parser.parse_args()
 
     token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
@@ -42,7 +43,7 @@ def main():
     save(stargazers_path, f"{owner}/{repo}", merged)
 
     country_counts, _company_counts = enrich_and_aggregate(stargazers_path, aggregates_path)
-    render_world_map(country_counts, map_png, map_html)
+    render_world_map(country_counts, map_png, map_html, theme=args.theme)
 
     print(f"Updated {stargazers_path}, {aggregates_path}, and visuals in {output_dir}.")
 
