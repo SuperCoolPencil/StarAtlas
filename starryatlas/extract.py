@@ -126,7 +126,7 @@ def main():
     parser = argparse.ArgumentParser(description="Fetch stargazers via GitHub GraphQL.")
     parser.add_argument("--owner", default=None)
     parser.add_argument("--repo", default=None)
-    parser.add_argument("--output", default=os.path.join("staratlas", "stargazers.json"))
+    parser.add_argument("--output", default=os.path.join("starryatlas", "stargazers.json"))
     args = parser.parse_args()
 
     token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")

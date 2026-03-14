@@ -39,6 +39,6 @@
     <circle cx="330" cy="420" r="14" fill="#4cc9f0" />
   </g>
 
-  <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" fill="#e6f1ff">StarAtlas Demo Map</text>
+  <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" fill="#e6f1ff">StarryAtlas Demo Map</text>
   <text x="40" y="90" font-family="Arial, sans-serif" font-size="16" fill="#9bb3d1">Stylized preview map for README embeds.</text>
 </svg>

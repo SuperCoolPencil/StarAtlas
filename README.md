@@ -7,7 +7,7 @@ Location note: we only use `pycountry` to infer countries from user-provided pro
 ## Usage
 
 ```yaml
-name: StarAtlas
+name: StarryAtlas
 
 on:
   schedule:
@@ -25,15 +25,15 @@ jobs:
       - uses: astral-sh/setup-uv@v3
       - uses: supercoolpencil/starryatlas@v1
         with:
-          output-dir: staratlas
+          output-dir: starryatlas
           html: "true"
           theme: light
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(staratlas): update stargazer visuals"
-          file_pattern: staratlas/*
+          commit_message: "chore(starryatlas): update stargazer visuals"
+          file_pattern: starryatlas/*
 ```
 
 ## Embed
 
-![StarryAtlas Map](./staratlas/demo/staratlas-map-demo.svg)
+![StarryAtlas Map](./starryatlas/demo/starryatlas-map-demo.svg)

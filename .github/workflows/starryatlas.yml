@@ -1,4 +1,4 @@
-name: StarAtlas
+name: StarryAtlas
 
 on:
   schedule:
@@ -22,12 +22,12 @@ jobs:
         uses: astral-sh/setup-uv@v3
       - name: Install dependencies
         run: uv pip install -r requirements.txt
-      - name: Run StarAtlas
+      - name: Run StarryAtlas
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python run_staratlas.py --html
+        run: python run_starryatlas.py --html
       - name: Commit artifacts
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(staratlas): update stargazer visuals"
-          file_pattern: staratlas/*
+          commit_message: "chore(starryatlas): update stargazer visuals"
+          file_pattern: starryatlas/*

@@ -15,7 +15,7 @@ inputs:
   output-dir:
     description: Output directory for artifacts.
     required: false
-    default: staratlas
+    default: starryatlas
   html:
     description: Also emit interactive HTML map.
     required: false
@@ -37,7 +37,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: uv pip install -r "${{ github.action_path }}/requirements.txt"
-    - name: Run StarAtlas
+    - name: Run StarryAtlas
       shell: bash
       env:
         GITHUB_TOKEN: ${{ github.token }}
@@ -48,4 +48,4 @@ runs:
         args+=("--output-dir" "${{ inputs.output-dir }}")
         args+=("--theme" "${{ inputs.theme }}")
         if [ "${{ inputs.html }}" = "true" ]; then args+=("--html"); fi
-        python "${{ github.action_path }}/run_staratlas.py" "${args[@]}"
+        python "${{ github.action_path }}/run_starryatlas.py" "${args[@]}"

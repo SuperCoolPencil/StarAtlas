@@ -2,16 +2,16 @@ import argparse
 import os
 import sys
 
-from staratlas.enrich import enrich_and_aggregate
-from staratlas.extract import fetch_stargazers, load_existing, merge_dedup, save
-from staratlas.visualize import render_world_map
+from starryatlas.enrich import enrich_and_aggregate
+from starryatlas.extract import fetch_stargazers, load_existing, merge_dedup, save
+from starryatlas.visualize import render_world_map
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Run StarAtlas end-to-end.")
+    parser = argparse.ArgumentParser(description="Run StarryAtlas end-to-end.")
     parser.add_argument("--owner", default=None)
     parser.add_argument("--repo", default=None)
-    parser.add_argument("--output-dir", default="staratlas")
+    parser.add_argument("--output-dir", default="starryatlas")
     parser.add_argument("--html", action="store_true", help="Also emit an interactive HTML map.")
     parser.add_argument("--theme", default="light", choices=["light", "dark"], help="Theme for the map.")
     args = parser.parse_args()
@@ -34,8 +34,8 @@ def main():
     output_dir = args.output_dir
     stargazers_path = os.path.join(output_dir, "stargazers.json")
     aggregates_path = os.path.join(output_dir, "aggregates.json")
-    map_png = os.path.join(output_dir, "staratlas-map.png")
-    map_html = os.path.join(output_dir, "staratlas-map.html") if args.html else None
+    map_png = os.path.join(output_dir, "starryatlas-map.png")
+    map_html = os.path.join(output_dir, "starryatlas-map.html") if args.html else None
 
     existing, last_ts = load_existing(stargazers_path)
     new_entries = fetch_stargazers(owner, repo, token, last_ts)
