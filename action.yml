@@ -1,6 +1,6 @@
-name: StargazerAtlas
+name: StarryAtlas
 description: Generate stargazer community visuals (world map) using the GitHub GraphQL API.
-author: StargazerAtlas
+author: StarryAtlas
 branding:
   icon: map
   color: blue
